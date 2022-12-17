@@ -2,9 +2,9 @@
   "name": "node-fetch",
   "version": "3.1.1",
   "description": "A light-weight module that brings Fetch API to node.js",
+  "main": "./dist/index.js",
   "module": "./src/index.js",
   "sideEffects": false,
-  "type": "module",
   "files": [
     "src",
     "@types/index.d.ts"
@@ -14,6 +14,7 @@
     "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
   },
   "scripts": {
+    "build": "npx babel src/index.js --out-file dist/index.js",
     "test": "mocha",
     "coverage": "c8 report --reporter=text-lcov | coveralls",
     "test-types": "tsd",
@@ -59,7 +60,12 @@
     "p-timeout": "^5.0.0",
     "stream-consumers": "^1.0.1",
     "tsd": "^0.14.0",
-    "xo": "^0.39.1"
+    "xo": "^0.39.1",
+    "@babel/core": "7.20.5",
+    "@babel/plugin-transform-runtime": "^7.19.6",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/runtime": "^7.20.1",
+    "@babel/cli": "7.19.3"
   },
   "dependencies": {
     "data-uri-to-buffer": "^4.0.0",
